@@ -1,12 +1,14 @@
 package com.hemebiotech.analytics;
 
-import java.io.FileWriter;
 import java.util.List;
+import java.util.Map;
 
 import com.hemebiotech.analytics.SymptomCounter.ISymptomCounter;
 import com.hemebiotech.analytics.SymptomCounter.SymptomCounterListImpl;
 import com.hemebiotech.analytics.SymptomReader.ISymptomReader;
 import com.hemebiotech.analytics.SymptomReader.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.SymptomWriter.ISymptomWriter;
+import com.hemebiotech.analytics.SymptomWriter.SymptomWriteFileImpl;
 
 public class AnalyticsCounter {
 	
@@ -15,17 +17,12 @@ public class AnalyticsCounter {
 		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
 		List<String> rawSymptomList = reader.GetSymptoms();
 
+		// Count the number of occurrence
 		ISymptomCounter counter = new SymptomCounterListImpl(rawSymptomList);
-		System.out.println(counter.CountSymptoms());
+		Map<String, Integer> occurenceNumber = counter.CountSymptoms();
 		
 
-		// next generate output
-		/*
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + dialatedPupilCount + "\n");
-		writer.close();
-		*/
+		ISymptomWriter writer = new SymptomWriteFileImpl(occurenceNumber, "result.out");
+		writer.WriteSymptoms();
 	}
 }
