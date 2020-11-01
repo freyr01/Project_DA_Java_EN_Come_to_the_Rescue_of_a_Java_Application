@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.SymptomCounter;
+package com.hemebiotech.analytics.symptom.counter;
 
 /**
  * Signals that an error of some sort has occurred while counting a list of things

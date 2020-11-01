@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.SymptomWriter;
+package com.hemebiotech.analytics.symptom.writer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,18 +10,18 @@ import java.util.Map;
  * @author Matt
  *
  */
-public class SymptomWriteFileImpl implements ISymptomWriter{
+public class WriteSymptomFileImpl implements ISymptomWriter{
 	
 	private final String outpath;
 	private final Map<String, Integer> symptomMap;
 	
 	/**
 	 * Constructor
-	 * @param Map<String, Integer> that contains symptoms and occurrences
-	 * @param Path as String to the file that will be write
+	 * @param p_symptomMap map that contains symptoms as String and occurrences as Integer
+	 * @param p_outpath Path as String to the file that will be write
 	 * @throws SymptomWriteException when an argument is null
 	 */
-	public SymptomWriteFileImpl(final Map<String, Integer> p_symptomMap,
+	public WriteSymptomFileImpl(final Map<String, Integer> p_symptomMap,
 								final String p_outpath) 
 								throws SymptomWriteException {
 		

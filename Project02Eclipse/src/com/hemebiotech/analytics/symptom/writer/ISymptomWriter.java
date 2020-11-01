@@ -1,6 +1,6 @@
-package com.hemebiotech.analytics.SymptomWriter;
+package com.hemebiotech.analytics.symptom.writer;
 /**
- *  * Anything that will write symptoms data to somewhere
+ * Anything that will write symptoms data to somewhere
  * @author Matt
  *
  */

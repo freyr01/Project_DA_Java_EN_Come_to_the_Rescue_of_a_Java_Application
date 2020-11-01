@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.SymptomWriter;
+package com.hemebiotech.analytics.symptom.writer;
 
 /**
  * Signals that an error of some sort has occurred while writing data to somewhere

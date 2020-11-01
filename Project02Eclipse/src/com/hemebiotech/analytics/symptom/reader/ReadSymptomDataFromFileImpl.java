@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.SymptomReader;
+package com.hemebiotech.analytics.symptom.reader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,7 +9,7 @@ import java.util.List;
  * Read a symptom list from a file
  * 
  */
-public class ReadSymptomDataFromFile implements ISymptomReader {
+public class ReadSymptomDataFromFileImpl implements ISymptomReader {
 
 	private String filepath;
 	
@@ -18,7 +18,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 * @throws SymptomReaderException when filepath is null
 	 */
-	public ReadSymptomDataFromFile (String filepath) throws SymptomReaderException {
+	public ReadSymptomDataFromFileImpl (String filepath) throws SymptomReaderException {
 		if(filepath == null) throw new SymptomReaderException("filepath cannot be null");
 		this.filepath = filepath;
 	}

@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.SymptomCounter;
+package com.hemebiotech.analytics.symptom.counter;
 
 import java.util.Hashtable;
 import java.util.List;
@@ -9,11 +9,11 @@ import java.util.Map;
  * @author Matt
  *
  */
-public class SymptomCounterListImpl implements ISymptomCounter {
+public class CountSymptomFromList implements ISymptomCounter {
 	
 	private final List<String> symptomList;
 	
-	public SymptomCounterListImpl(final List<String> p_symptomList) throws SymptomCounterException {
+	public CountSymptomFromList(final List<String> p_symptomList) throws SymptomCounterException {
 		if(p_symptomList == null) throw new SymptomCounterException("Argument cannot be null");
 		this.symptomList = p_symptomList;
 	}
