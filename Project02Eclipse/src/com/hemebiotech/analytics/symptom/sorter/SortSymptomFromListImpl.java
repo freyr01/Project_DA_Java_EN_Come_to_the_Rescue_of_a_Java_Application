@@ -16,14 +16,11 @@ public class SortSymptomFromListImpl implements ISymptomSort{
 	public Map<String, Integer> sortSymptoms() throws SymptomSortException {
 		Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
 		sortedMap = unsortMap.entrySet()
-				.stream()
-				.sorted(Map.Entry.comparingByKey()) //Comparator by key method 
-				.collect(Collectors.toMap			
-					(
-						Map.Entry::getKey, Map.Entry::getValue
-						, (oldValue, newValue) -> oldValue
-						, LinkedHashMap::new)			
-					);
+				.stream() //Make a stream from the key set for advanced manipulation
+				.sorted(Map.Entry.comparingByKey())
+				//sorted need a Comparator implementation returned by comparingByKey() to know how to sort data
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); 
+				//collect need a Collector implementation returned by the Collectors.toMap builder to make a new map based on data of the stream.
 		return sortedMap;
 	}
 
