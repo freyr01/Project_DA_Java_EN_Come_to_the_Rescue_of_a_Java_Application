@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface ISymptomSort {
 	
-	Map<String, Integer> SortSymptoms() throws SymptomSortException;
+	Map<String, Integer> sortSymptoms() throws SymptomSortException;
 
 }

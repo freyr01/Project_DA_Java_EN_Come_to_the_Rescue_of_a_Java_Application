@@ -6,6 +6,6 @@ package com.hemebiotech.analytics.symptom.writer;
  */
 public interface ISymptomWriter {
 	
-	public void WriteSymptoms() throws SymptomWriteException;
+	public void writeSymptoms() throws SymptomWriteException;
 
 }

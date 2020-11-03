@@ -24,7 +24,7 @@ public class ReadSymptomDataFromFileImpl implements ISymptomReader {
 	}
 	
 	@Override
-	public List<String> GetSymptoms() throws SymptomReaderException {
+	public List<String> getSymptoms() throws SymptomReaderException {
 		List<String> result = null;
 
 		try {

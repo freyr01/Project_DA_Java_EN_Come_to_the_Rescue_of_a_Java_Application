@@ -37,7 +37,7 @@ public class WriteSymptomFileImpl implements ISymptomWriter{
 	 * @throws SymptomWriteException if something goes wrong with the write process
 	 */
 	@Override
-	public void WriteSymptoms() throws SymptomWriteException {
+	public void writeSymptoms() throws SymptomWriteException {
 		
 		BufferedWriter writer = null;
 		

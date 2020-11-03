@@ -23,7 +23,7 @@ public class CountSymptomFromList implements ISymptomCounter {
 	 * @return A map where key is a symptom and value is the number of occurrence
 	 */
 	@Override
-	public Map<String, Integer> CountSymptoms() throws SymptomCounterException {
+	public Map<String, Integer> countSymptoms() throws SymptomCounterException {
 		Map<String, Integer> symptomMap = new Hashtable<String, Integer>();
 
 		for(final String symptom : symptomList)

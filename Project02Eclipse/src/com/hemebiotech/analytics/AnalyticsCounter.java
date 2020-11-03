@@ -17,18 +17,18 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 		// first get input
 		ISymptomReader reader = new ReadSymptomDataFromFileImpl("symptoms.txt");
-		List<String> rawSymptomList = reader.GetSymptoms();
+		List<String> rawSymptomList = reader.getSymptoms();
 
 		// Count the number of occurrence
 		ISymptomCounter counter = new CountSymptomFromList(rawSymptomList);
-		Map<String, Integer> countedMap = counter.CountSymptoms();
+		Map<String, Integer> countedMap = counter.countSymptoms();
 		
 		//Sort the map
 		ISymptomSort sorter = new SortSymptomFromListImpl(countedMap);
-		var sortedMap = sorter.SortSymptoms();
+		var sortedMap = sorter.sortSymptoms();
 		
 
 		ISymptomWriter writer = new WriteSymptomFileImpl(sortedMap, "result.out");
-		writer.WriteSymptoms();
+		writer.writeSymptoms();
 	}
 }

@@ -13,6 +13,6 @@ public interface ISymptomCounter {
 	 * @return A map representing each things as a String with them number of occurrence
 	 * @throws SymptomCounterException when something goes wrong with the counter
 	 */
-	Map<String, Integer> CountSymptoms() throws SymptomCounterException;
+	Map<String, Integer> countSymptoms() throws SymptomCounterException;
 
 }

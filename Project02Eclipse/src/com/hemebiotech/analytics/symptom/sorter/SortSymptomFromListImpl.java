@@ -13,7 +13,7 @@ public class SortSymptomFromListImpl implements ISymptomSort{
 		unsortMap = p_unsortMap;
 	}
 	@Override
-	public Map<String, Integer> SortSymptoms() throws SymptomSortException {
+	public Map<String, Integer> sortSymptoms() throws SymptomSortException {
 		Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
 		sortedMap = unsortMap.entrySet()
 				.stream()

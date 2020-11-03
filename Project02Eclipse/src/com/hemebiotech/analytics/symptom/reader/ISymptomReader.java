@@ -17,5 +17,5 @@ public interface ISymptomReader {
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 * @throws SymptomReaderException when something goes wrong with the reader
 	 */
-	List<String> GetSymptoms () throws SymptomReaderException;
+	List<String> getSymptoms () throws SymptomReaderException;
 }
