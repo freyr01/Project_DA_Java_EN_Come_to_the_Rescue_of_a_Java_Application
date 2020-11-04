@@ -3,32 +3,53 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
-import com.hemebiotech.analytics.symptom.counter.ISymptomCounter;
-import com.hemebiotech.analytics.symptom.counter.CountSymptomFromList;
-import com.hemebiotech.analytics.symptom.reader.ISymptomReader;
-import com.hemebiotech.analytics.symptom.reader.ReadSymptomDataFromFileImpl;
-import com.hemebiotech.analytics.symptom.sorter.ISymptomSort;
-import com.hemebiotech.analytics.symptom.sorter.SortSymptomFromListImpl;
-import com.hemebiotech.analytics.symptom.writer.ISymptomWriter;
-import com.hemebiotech.analytics.symptom.writer.WriteSymptomFileImpl;
+import com.hemebiotech.analytics.symptom.counter.*;
+import com.hemebiotech.analytics.symptom.reader.*;
+import com.hemebiotech.analytics.symptom.sorter.*;
+import com.hemebiotech.analytics.symptom.writer.*;
 
 public class AnalyticsCounter {
 	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		ISymptomReader reader = new ReadSymptomDataFromFileImpl("symptoms.txt");
-		List<String> rawSymptomList = reader.getSymptoms();
+	private static final String IN_FILE = "symptoms.txt";
+	private static final String OUT_FILE = "result.out";
+	
+	public static void main(String args[]){
 
-		// Count the number of occurrence
-		ISymptomCounter counter = new CountSymptomFromList(rawSymptomList);
-		Map<String, Integer> countedMap = counter.countSymptoms();
+		ISymptomReader reader = null;
+		ISymptomCounter counter = null;
+		ISymptomWriter writer = null;
+		ISymptomSorter sorter = null;
+		List<String> rawSymptomList = null;
+		Map<String, Integer> unsortedSymptomMap = null;
+		Map<String, Integer> sortedSymptomMap = null;
+		
+		//Get input and count it
+		try {
+			reader = new ReadSymptomDataFromFileImpl(IN_FILE);
+			rawSymptomList = reader.getSymptoms();
+
+		} catch (SymptomReaderException e) {
+			System.out.println("Read error: " + e.getMessage());
+			return;
+		}
+		
+		//Count the list
+		counter = new CountSymptomFromList(rawSymptomList);
+		unsortedSymptomMap = counter.countSymptoms();
 		
 		//Sort the map
-		ISymptomSort sorter = new SortSymptomFromListImpl(countedMap);
-		var sortedMap = sorter.sortSymptoms();
-		
+		sorter = new SortSymptomFromListImpl(unsortedSymptomMap);
+		sortedSymptomMap = sorter.sortSymptoms();
 
-		ISymptomWriter writer = new WriteSymptomFileImpl(sortedMap, "result.out");
-		writer.writeSymptoms();
+		
+		//Write to a file
+		try {
+			writer = new WriteSymptomFileImpl(sortedSymptomMap, OUT_FILE);
+			writer.writeSymptoms();
+		} catch (SymptomWriteException e) {
+			System.out.println("Write error: " + e.getMessage());
+			return;
+		}
+		
 	}
 }

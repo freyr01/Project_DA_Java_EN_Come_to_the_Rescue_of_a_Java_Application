@@ -4,16 +4,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class SortSymptomFromListImpl implements ISymptomSort{
+public class SortSymptomFromListImpl implements ISymptomSorter{
 	
 	private final Map<String, Integer> unsortMap; 
 
-	public SortSymptomFromListImpl(final Map<String, Integer> p_unsortMap) throws SymptomSortException {
-		if(p_unsortMap == null) throw new SymptomSortException("null argument not permitted");
+	public SortSymptomFromListImpl(final Map<String, Integer> p_unsortMap){
 		unsortMap = p_unsortMap;
 	}
 	@Override
-	public Map<String, Integer> sortSymptoms() throws SymptomSortException {
+	public Map<String, Integer> sortSymptoms() {
 		Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
 		sortedMap = unsortMap.entrySet()
 				.stream() //Make a stream from the key set for advanced manipulation

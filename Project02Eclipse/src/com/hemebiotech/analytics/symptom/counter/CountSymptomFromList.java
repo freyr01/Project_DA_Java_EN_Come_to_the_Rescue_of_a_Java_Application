@@ -13,8 +13,7 @@ public class CountSymptomFromList implements ISymptomCounter {
 	
 	private final List<String> symptomList;
 	
-	public CountSymptomFromList(final List<String> p_symptomList) throws SymptomCounterException {
-		if(p_symptomList == null) throw new SymptomCounterException("Argument cannot be null");
+	public CountSymptomFromList(final List<String> p_symptomList) {
 		this.symptomList = p_symptomList;
 	}
 
@@ -23,7 +22,7 @@ public class CountSymptomFromList implements ISymptomCounter {
 	 * @return A map where key is a symptom and value is the number of occurrence
 	 */
 	@Override
-	public Map<String, Integer> countSymptoms() throws SymptomCounterException {
+	public Map<String, Integer> countSymptoms() {
 		Map<String, Integer> symptomMap = new Hashtable<String, Integer>();
 
 		for(final String symptom : symptomList)
