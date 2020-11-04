@@ -18,7 +18,7 @@ public class SortSymptomFromListImpl implements ISymptomSorter{
 				.stream() //Make a stream from the key set for advanced manipulation
 				.sorted(Map.Entry.comparingByKey())
 				//sorted need a Comparator implementation returned by comparingByKey() to know how to sort data
-				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); 
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue,LinkedHashMap::new)); 
 				//collect need a Collector implementation returned by the Collectors.toMap builder to make a new map based on data of the stream.
 		return sortedMap;
 	}

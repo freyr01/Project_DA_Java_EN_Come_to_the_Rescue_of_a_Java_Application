@@ -34,7 +34,7 @@ public class AnalyticsCounter {
 			if(inFile.isEmpty()) inFile = DEF_IN_FILE;
 			System.out.printf("Write results in, default [%s]: ", outFile);
 			outFile = scanner.nextLine();
-			if(outFile.isEmpty()) outFile = DEF_IN_FILE;
+			if(outFile.isEmpty()) outFile = DEF_OUT_FILE;
 		}
 		
 		//Get input and count it
