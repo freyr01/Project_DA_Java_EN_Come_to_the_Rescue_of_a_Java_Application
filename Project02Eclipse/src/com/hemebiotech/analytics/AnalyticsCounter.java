@@ -22,7 +22,7 @@ public class AnalyticsCounter {
 	 * @throws SymptomReaderException 
 	 * @throws SymptomWriteException 
 	 */
-	public static void writeSymptomsOccurrenceToFile(final String inFile, final String outFile) 
+	public void writeSymptomsOccurrenceToFile(final String inFile, final String outFile) 
 			throws SymptomReaderException, SymptomWriteException
 	{
 		//Get input and count it
