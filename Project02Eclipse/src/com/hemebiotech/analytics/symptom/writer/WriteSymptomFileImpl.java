@@ -21,12 +21,8 @@ public class WriteSymptomFileImpl implements ISymptomWriter{
 	 * @param p_outpath Path as String to the file that will be write
 	 * @throws SymptomWriteException when an argument is null
 	 */
-	public WriteSymptomFileImpl(final Map<String, Integer> p_symptomMap,
-								final String p_outpath) 
+	public WriteSymptomFileImpl(final Map<String, Integer> p_symptomMap, final String p_outpath) 
 								throws SymptomWriteException {
-		
-		if(p_outpath == null || p_symptomMap == null) 
-			throw new SymptomWriteException("null argument not permitted");
 		
 		this.outpath = p_outpath;
 		this.symptomMap = p_symptomMap;

@@ -18,8 +18,7 @@ public class ReadSymptomDataFromFileImpl implements ISymptomReader {
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 * @throws SymptomReaderException when filepath is null
 	 */
-	public ReadSymptomDataFromFileImpl (String filepath) throws SymptomReaderException {
-		if(filepath == null) throw new SymptomReaderException("filepath cannot be null");
+	public ReadSymptomDataFromFileImpl (String filepath) {
 		this.filepath = filepath;
 	}
 	
