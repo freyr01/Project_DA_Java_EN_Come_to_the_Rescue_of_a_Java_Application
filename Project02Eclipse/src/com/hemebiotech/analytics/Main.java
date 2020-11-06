@@ -1,7 +1,5 @@
 package com.hemebiotech.analytics;
 
-import java.util.Scanner;
-
 import com.hemebiotech.analytics.scanner.ConsoleImpl;
 import com.hemebiotech.analytics.scanner.IScanner;
 import com.hemebiotech.analytics.scanner.ScannerData;
@@ -9,14 +7,15 @@ import com.hemebiotech.analytics.symptom.reader.SymptomReaderException;
 import com.hemebiotech.analytics.symptom.writer.SymptomWriteException;
 
 /**
- * Entry point of the application
- * @author Matt
- *
+ * Entry point of the application.
+ * @author Mathias Lauer
+ * 6 nov. 2020
  */
 public class Main {
 	
 	public static void main(String args[]){
 		
+		//Ask for params
 		IScanner scanner = new ConsoleImpl();
 		ScannerData scannerData = scanner.getScannerData();
 		

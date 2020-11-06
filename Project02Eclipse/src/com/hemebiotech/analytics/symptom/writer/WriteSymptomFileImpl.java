@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * Write symptoms and number of occurrence in a file as text.
- * @author Matt
- *
+ * Implementation the write a file.
+ * @author Mathias Lauer
+ * 6 nov. 2020
  */
 public class WriteSymptomFileImpl implements ISymptomWriter{
 	
@@ -17,9 +17,11 @@ public class WriteSymptomFileImpl implements ISymptomWriter{
 	
 	/**
 	 * Constructor
-	 * @param p_symptomMap map that contains symptoms as String and occurrences as Integer
-	 * @param p_outpath Path as String to the file that will be write
-	 * @throws SymptomWriteException when an argument is null
+	 * @author Mathias Lauer
+	 * 6 nov. 2020
+	 * @param p_symptomMap map that contains symptoms as String and occurrences as Integer.
+	 * @param p_outpath Path as String to the file that will be write.
+	 * @throws SymptomWriteException when something goes wrong with the write process.
 	 */
 	public WriteSymptomFileImpl(final Map<String, Integer> p_symptomMap, final String p_outpath) 
 								throws SymptomWriteException {
@@ -29,7 +31,9 @@ public class WriteSymptomFileImpl implements ISymptomWriter{
 	}
 
 	/**
-	 * Browse the map and write each entries as 'symptom : occurrence' per line in the file given.
+	 * Browse the map and write each entry as 'symptom: occurrence' one per line in the given file.
+	 * @author Mathias Lauer
+	 * 6 nov. 2020
 	 * @throws SymptomWriteException if something goes wrong with the write process
 	 */
 	@Override

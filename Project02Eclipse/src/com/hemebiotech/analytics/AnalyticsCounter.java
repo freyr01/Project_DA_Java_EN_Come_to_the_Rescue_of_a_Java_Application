@@ -9,23 +9,25 @@ import com.hemebiotech.analytics.symptom.sorter.*;
 import com.hemebiotech.analytics.symptom.writer.*;
 
 /**
- * This class provide static methods to manipulate list of symptoms
- * @author Matt
- *
+ * Contain all the methods can be used to process the symptoms list.
+ * @author Mathias Lauer
+ * 6 nov. 2020
  */
 public class AnalyticsCounter {
 	
 	/**
 	 * This method take symptom file, do a count and a sort treatment and write the result
-	 * @param inFile Symptoms file with strings in it, one per line
-	 * @param outFile File to write the result
-	 * @throws SymptomReaderException 
-	 * @throws SymptomWriteException 
+	 * @author Mathias Lauer
+	 * 6 nov. 2020
+	 * @param inFile Symptoms file with strings in it, one per line.
+	 * @param outFile File where write the result.
+	 * @throws SymptomReaderException when something goes wrong while reading the source file.
+	 * @throws SymptomWriteException when something goes wrong while writing the destination file.
 	 */
 	public void writeSymptomsOccurrenceToFile(final String inFile, final String outFile) 
 			throws SymptomReaderException, SymptomWriteException
 	{
-		//Get input and count it
+		//Get source file
 		ISymptomReader reader = new ReadSymptomDataFromFileImpl(inFile);
 		List<String> rawSymptomList = reader.getSymptoms();
 
@@ -37,7 +39,7 @@ public class AnalyticsCounter {
 		ISymptomSorter sorter = new SortSymptomFromListImpl(unsortedSymptomMap);
 		Map<String, Integer> sortedSymptomMap = sorter.sortSymptoms();
 		
-		//Write to a file
+		//Write
 		ISymptomWriter writer = new WriteSymptomFileImpl(sortedSymptomMap, outFile);
 		writer.writeSymptoms();
 

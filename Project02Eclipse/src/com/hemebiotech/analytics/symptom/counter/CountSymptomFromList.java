@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Count the number of symptom string in a list
- * @author Matt
- *
+ * Count the number of symptom string in a list.
+ * @author Mathias Lauer
+ * 6 nov. 2020
  */
 public class CountSymptomFromList implements ISymptomCounter {
 	
@@ -18,8 +18,10 @@ public class CountSymptomFromList implements ISymptomCounter {
 	}
 
 	/**
-	 * Browse the list and increment the occurence's number of a particular symptom
-	 * @return A map where key is a symptom and value is the number of occurrence
+	 * Browse the list and increment the occurence's number of a particular symptom.
+	 * @author Mathias Lauer
+	 * 6 nov. 2020
+	 * @return A map where key is a symptom and value is the number of occurrence.
 	 */
 	@Override
 	public Map<String, Integer> countSymptoms() {

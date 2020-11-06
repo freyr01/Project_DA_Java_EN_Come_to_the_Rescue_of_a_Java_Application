@@ -2,8 +2,8 @@ package com.hemebiotech.analytics.symptom.writer;
 
 /**
  * Signals that an error of some sort has occurred while writing data to somewhere
- * @author Matt
- *
+ * @author Mathias Lauer
+ * 6 nov. 2020
  */
 public class SymptomWriteException extends Exception {
 

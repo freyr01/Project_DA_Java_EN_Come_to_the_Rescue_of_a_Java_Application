@@ -1,5 +1,10 @@
 package com.hemebiotech.analytics.scanner;
 
+/**
+ * Instance of this contain data to use the application.
+ * @author Mathias Lauer
+ * 6 nov. 2020
+ */
 public class ScannerData {
 	
 	private String inputFile;
