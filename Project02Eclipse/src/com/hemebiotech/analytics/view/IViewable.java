@@ -8,19 +8,26 @@ package com.hemebiotech.analytics.view;
 public interface IViewable {
 	
 	/**
-	 * Ask the user the path to the file containing symptoms list
+	 * Get the path to the file containing symptoms list
 	 * @author Mathias Lauer
 	 * 7 nov. 2020
-	 * @return String path to the symptoms list file.
+	 * @return Path to the symptoms list file.
 	 */
-	public String askInputFile();
+	public String getInputFile();
 	
 	/**
-	 * Ask the user the path of the file will contain the result
+	 * Get the path of the file will contain the result
 	 * @author Mathias Lauer
 	 * 7 nov. 2020
-	 * @return String path to the file will be write
+	 * @return Path to the file will be write
 	 */
-	public String askOutputFile();
+	public String getOutputFile();
 
+	/**
+	 * Show an error
+	 * @author Mathias Lauer
+	 * 8 nov. 2020
+	 * @param error as a String.
+	 */
+	public void showError(String error);
 }

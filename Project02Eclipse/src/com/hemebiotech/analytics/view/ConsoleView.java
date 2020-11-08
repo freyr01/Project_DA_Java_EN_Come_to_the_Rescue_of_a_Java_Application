@@ -3,7 +3,7 @@ package com.hemebiotech.analytics.view;
 import java.util.Scanner;
 
 /**
- * This implementation represent a terminal view
+ * This implementation represent a terminal view.
  * @author Mathias Lauer
  * 6 nov. 2020
  */
@@ -13,13 +13,13 @@ public class ConsoleView implements IViewable {
 	private Scanner scanner = new Scanner(System.in);
 	
 	/**
-	 * Use a scanner to ask the path of the symptom file
+	 * Use a scanner to ask the path of the symptom file.
 	 * @author Mathias Lauer
 	 * 7 nov. 2020
 	 * @return {@inheritDoc}
 	 */
 	@Override
-	public String askInputFile() {
+	public String getInputFile() {
 		String inputFile;
 		System.out.printf("Symptoms source file, default [%s]: ", DEFAULT_SRC);
 		inputFile = scanner.nextLine();
@@ -29,20 +29,29 @@ public class ConsoleView implements IViewable {
 	}
 	
 	/**
-	 * Use a scanner to ask the path of the file will contain the results
+	 * Use a scanner to ask the path of the file will contain the results.
 	 * @author Mathias Lauer
 	 * 7 nov. 2020
 	 * @return {@inheritDoc}
 	 */
 	@Override
-	public String askOutputFile() {
+	public String getOutputFile() {
 		String outputFile;
 		System.out.printf("File to write, default [%s]: ", DEFAULT_DEST);
 		outputFile = scanner.nextLine();
 		if(outputFile.isEmpty()) outputFile = DEFAULT_DEST;	
 
 		return outputFile;
-		
 	}
-
+	
+	/**
+	 * Show an error through System.err.
+	 * @author Mathias Lauer
+	 * 8 nov. 2020
+	 * @param An error message as a String.
+	 */
+	@Override
+	public void showError(String error) {
+		System.err.println(error);
+	}
 }

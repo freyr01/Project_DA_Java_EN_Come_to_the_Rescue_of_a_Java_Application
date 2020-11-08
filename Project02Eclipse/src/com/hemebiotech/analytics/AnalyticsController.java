@@ -7,7 +7,6 @@ import com.hemebiotech.analytics.symptom.counter.*;
 import com.hemebiotech.analytics.symptom.reader.*;
 import com.hemebiotech.analytics.symptom.sorter.*;
 import com.hemebiotech.analytics.symptom.writer.*;
-import com.hemebiotech.analytics.view.ConsoleView;
 import com.hemebiotech.analytics.view.IViewable;
 
 /**
@@ -15,38 +14,43 @@ import com.hemebiotech.analytics.view.IViewable;
  * @author Mathias Lauer
  * 6 nov. 2020
  */
-public class AnalyticsCounter {
+public class AnalyticsController {
+	
+	private IViewable view;
 	
 	/**
-	 * This method take symptom file, do a count and a sort treatment and write the result
+	 * Constructor
+	 * @author Mathias Lauer
+	 * 8 nov. 2020
+	 * @param p_view A View that implement IViewable interface.
+	 */
+	public AnalyticsController(IViewable p_view) {
+		this.view = p_view;
+	}
+	
+	/**
+	 * Read a symptoms file, count the number of symptoms then sort it, finally write the result in a file.
 	 * @author Mathias Lauer
 	 * 6 nov. 2020
-	 * @param inFile Symptoms file with strings in it, one per line.
-	 * @param outFile File where write the result.
 	 * @throws SymptomReaderException when something goes wrong while reading the source file.
 	 * @throws SymptomWriteException when something goes wrong while writing the destination file.
 	 */
-	public void writeSymptomsOccurrenceToFile(IViewable view) 
-			throws SymptomReaderException, SymptomWriteException
-	{
-		//Get source file
-		String inputFile = view.askInputFile();
-		
-		ISymptomReader reader = new ReadSymptomDataFromFileImpl(inputFile);
+	public void writeSymptomsOccurrenceToFile() 
+			throws SymptomReaderException, SymptomWriteException {
+		//Read from file
+		ISymptomReader reader = new ReadSymptomDataFromFileImpl(view.getInputFile());
 		List<String> rawSymptomList = reader.getSymptoms();
 
 		//Count the list
-		ISymptomCounter counter = new CountSymptomFromList(rawSymptomList);
+		ISymptomCounter counter = new CountSymptomFromListImpl(rawSymptomList);
 		Map<String, Integer> unsortedSymptomMap = counter.countSymptoms();
 		
 		//Sort the map
 		ISymptomSorter sorter = new SortSymptomFromListImpl(unsortedSymptomMap);
 		Map<String, Integer> sortedSymptomMap = sorter.sortSymptoms();
 		
-		//Write
-		ISymptomWriter writer = new WriteSymptomFileImpl(sortedSymptomMap, view.askOutputFile());
-		writer.writeSymptoms();
-
-				
+		//Write to file
+		ISymptomWriter writer = new WriteSymptomFileImpl(sortedSymptomMap, view.getOutputFile());
+		writer.writeSymptoms();		
 	}
 }

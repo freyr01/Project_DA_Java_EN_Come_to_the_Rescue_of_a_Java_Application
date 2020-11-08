@@ -28,8 +28,8 @@ public class ReadSymptomDataFromFileImpl implements ISymptomReader {
 	 * Read a text file using NIO2.
 	 * @author Mathias Lauer
 	 * 6 nov. 2020
-	 * @throws SymptomReaderException when filepath is null.
-	 * @return List<String> a raw list of symptoms, duplicate are possible.
+	 * @throws SymptomReaderException when something goes wrong with the reader.
+	 * @return A raw List of symptoms, duplicate are possible.
 	 */
 	@Override
 	public List<String> getSymptoms() throws SymptomReaderException {
