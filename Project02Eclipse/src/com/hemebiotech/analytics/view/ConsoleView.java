@@ -48,7 +48,7 @@ public class ConsoleView implements IViewable {
 	 * Show an error through System.err.
 	 * @author Mathias Lauer
 	 * 8 nov. 2020
-	 * @param An error message as a String.
+	 * @param error An error message as a String.
 	 */
 	@Override
 	public void showError(String error) {
